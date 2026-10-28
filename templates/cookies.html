@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Cookie Policy | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legal.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="legal-page">
+
+    <div class="legal-container">
+
+        <h1>Cookie Policy</h1>
+
+        <p class="updated">
+            Last Updated: August 2026
+        </p>
+
+        <h2>What Are Cookies?</h2>
+
+        <p>
+            Cookies are small text files stored on your device that help us
+            improve your browsing experience and remember your preferences.
+        </p>
+
+        <h2>How We Use Cookies</h2>
+
+        <ul>
+            <li>Remember your login session.</li>
+            <li>Save your language and theme preferences.</li>
+            <li>Improve website performance.</li>
+            <li>Analyze website traffic.</li>
+        </ul>
+
+        <h2>Types of Cookies</h2>
+
+        <ul>
+            <li>Essential Cookies</li>
+            <li>Performance Cookies</li>
+            <li>Analytics Cookies</li>
+            <li>Preference Cookies</li>
+        </ul>
+
+        <h2>Managing Cookies</h2>
+
+        <p>
+            You can disable cookies anytime from your browser settings,
+            but some website features may not work properly.
+        </p>
+
+        <h2>Contact Us</h2>
+
+        <p>
+            Email: support@vidsnapai.com
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

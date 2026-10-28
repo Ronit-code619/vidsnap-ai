@@ -1,0 +1,109 @@
+.error-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:100px 20px;
+
+}
+
+.error-card{
+
+    max-width:700px;
+
+    width:100%;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+
+    padding:60px 40px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.error-card h1{
+
+    font-size:140px;
+
+    color:#7C3AED;
+
+    margin:0;
+
+}
+
+.error-card h2{
+
+    color:white;
+
+    font-size:36px;
+
+    margin:15px 0;
+
+}
+
+.error-card p{
+
+    color:#CBD5E1;
+
+    font-size:18px;
+
+    margin-bottom:40px;
+
+}
+
+.error-buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.error-buttons a{
+
+    text-decoration:none;
+
+    padding:15px 30px;
+
+    border-radius:12px;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.home-btn{
+
+    background:linear-gradient(135deg,#7C3AED,#2563EB);
+
+}
+
+.contact-btn{
+
+    background:#334155;
+
+}
+
+.error-buttons a:hover{
+
+    transform:translateY(-4px);
+
+}

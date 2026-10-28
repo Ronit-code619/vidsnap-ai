@@ -1,0 +1,265 @@
+
+{% extends "base.html" %}
+
+{% block title %}Upload Studio | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
+{% endblock %}
+
+{% block content %}
+<section class="upload-page">
+    <div class="upload-header">
+        <h1>Upload Studio</h1>
+        <p>Create AI-powered Shorts, Reels & TikTok videos.</p>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="upload-message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form action="{{ url_for('upload') }}"
+          method="POST"
+          enctype="multipart/form-data"
+          id="uploadForm">
+
+        <div class="upload-box" id="dropZone">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <h2>Drag & Drop Your Video</h2>
+            <p>or</p>
+
+            <input type="file"
+                   id="videoInput"
+                   name="video"
+                   accept="video/mp4,video/quicktime,video/x-msvideo,video/x-matroska,video/webm"
+                   hidden
+                   required>
+
+            <button type="button"
+                    class="browse-btn"
+                    id="browseBtn">
+                Browse Files
+            </button>
+
+            <p id="fileName">MP4, MOV, AVI, MKV or WEBM · Max 500 MB</p>
+        </div>
+
+        <div class="settings-grid">
+            <div class="setting-card">
+                <label for="platform">Platform</label>
+                <select id="platform" name="platform">
+                    <option>Instagram Reel</option>
+                    <option>YouTube Shorts</option>
+                    <option>TikTok</option>
+                </select>
+            </div>
+
+            <div class="setting-card">
+                <label for="language">Language</label>
+                <select id="language" name="language">
+                    <option>English</option>
+                    <option>Hindi</option>
+                    <option>Spanish</option>
+                </select>
+            </div>
+
+            <div class="setting-card">
+                <label for="voice">Voice</label>
+                <select id="voice" name="voice">
+                    <option>Male AI</option>
+                    <option>Female AI</option>
+                </select>
+            </div>
+
+            <div class="setting-card">
+                <label for="captionStyle">Caption Style</label>
+                <select id="captionStyle" name="caption_style">
+                    <option>Modern</option>
+                    <option>Bold</option>
+                    <option>Minimal</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="preview-card">
+            <h2>Video Preview</h2>
+            <div class="preview-box">
+                {% if uploaded_video_url %}
+                    <video controls
+                           playsinline
+                           style="width:100%; max-height:450px;">
+                        <source src="{{ uploaded_video_url }}">
+                        Your browser does not support video playback.
+                    </video>
+                    <p>{{ uploaded_filename }}</p>
+                {% else %}
+                    <video id="videoPreview"
+                           controls
+                           playsinline
+                           hidden
+                           style="width:100%; max-height:450px;">
+                    </video>
+                    <p id="previewMessage">Your uploaded video will appear here.</p>
+                    <i class="fas fa-video" id="previewIcon"></i>
+                {% endif %}
+            </div>
+        </div>
+
+        <button type="submit" class="generate-btn" id="uploadBtn">
+            Upload Video
+        </button>
+    </form>
+
+
+{% if uploaded_video_url %}
+    <div class="preview-card">
+        <h2>Generate Your Reel</h2>
+        <p>Choose the clip duration and starting point.</p>
+
+        <form action="{{ url_for('generate_clip') }}" method="POST">
+            <div class="setting-card">
+                <label for="duration">Clip Duration</label>
+                <select id="duration" name="duration" required>
+                    <option value="15">15 seconds</option>
+                    <option value="30">30 seconds</option>
+                    <option value="60">60 seconds</option>
+                </select>
+            </div>
+
+            <div class="setting-card">
+                <label for="start_seconds">Start Time (seconds)</label>
+                <input
+                    type="number"
+                    id="start_seconds"
+                    name="start_seconds"
+                    min="0"
+                    max="86400"
+                    step="0.5"
+                    value="0"
+                    required
+                >
+            </div>
+
+            <label style="display: flex; align-items: center; gap: 10px; margin: 14px 0; cursor: pointer;">
+            <input
+            type="checkbox"
+            name="captions"
+            value="on"
+            checked
+            style="width: 18px; height: 18px;"
+            >
+            <span>✨ Enable Auto Captions</span>
+            </label>
+
+
+            <button type="submit" class="generate-btn">
+                🚀 Generate AI Reel
+            </button>
+        </form>
+    </div>
+    <div class="preview-card">
+    <h2>AI Hook Finder</h2>
+    <p>Analyze your video transcript to discover interesting moments for Shorts and Reels.</p>
+
+    <form action="{{ url_for('processing') }}" method="POST">
+        <button type="submit" class="generate-btn">
+            ✨ Find Viral Hooks
+        </button>
+    </form>
+</div>
+{% endif %}
+
+
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const input = document.getElementById("videoInput");
+    const browse = document.getElementById("browseBtn");
+    const dropZone = document.getElementById("dropZone");
+    const fileName = document.getElementById("fileName");
+    const preview = document.getElementById("videoPreview");
+    const previewMessage = document.getElementById("previewMessage");
+    const previewIcon = document.getElementById("previewIcon");
+    const form = document.getElementById("uploadForm");
+    const uploadBtn = document.getElementById("uploadBtn");
+
+    let previewUrl = null;
+
+    browse.addEventListener("click", () => input.click());
+
+    function showFile(file) {
+        if (!file) return;
+
+        const allowed = /\.(mp4|mov|avi|mkv|webm)$/i.test(file.name);
+        if (!allowed) {
+            alert("Please select an MP4, MOV, AVI, MKV, or WEBM video.");
+            input.value = "";
+            return;
+        }
+
+        if (file.size > 500 * 1024 * 1024) {
+            alert("The maximum video size is 500 MB.");
+            input.value = "";
+            return;
+        }
+
+        fileName.textContent = file.name;
+
+        if (preview && previewMessage && previewIcon) {
+            if (previewUrl) URL.revokeObjectURL(previewUrl);
+
+            previewUrl = URL.createObjectURL(file);
+            preview.src = previewUrl;
+            preview.hidden = false;
+            previewMessage.hidden = true;
+            previewIcon.hidden = true;
+            preview.load();
+        }
+    }
+
+    input.addEventListener("change", () => showFile(input.files[0]));
+
+    ["dragenter", "dragover"].forEach(eventName => {
+        dropZone.addEventListener(eventName, event => {
+            event.preventDefault();
+            dropZone.classList.add("drag-over");
+        });
+    });
+
+    ["dragleave", "drop"].forEach(eventName => {
+        dropZone.addEventListener(eventName, event => {
+            event.preventDefault();
+            dropZone.classList.remove("drag-over");
+        });
+    });
+
+    dropZone.addEventListener("drop", event => {
+        const file = event.dataTransfer.files[0];
+        if (!file) return;
+
+        const transfer = new DataTransfer();
+        transfer.items.add(file);
+        input.files = transfer.files;
+        showFile(file);
+    });
+
+    form.addEventListener("submit", function (event) {
+        if (!input.files.length) {
+            event.preventDefault();
+            alert("Please select a video before uploading.");
+            return;
+        }
+
+        uploadBtn.disabled = true;
+        uploadBtn.textContent = "Uploading...";
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Settings | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="settings-page">
+
+    <div class="page-header">
+        <h1>Settings</h1>
+        <p>Manage your account preferences.</p>
+    </div>
+
+    <div class="settings-container">
+
+        <div class="settings-card">
+
+            <h2>Appearance</h2>
+
+            <div class="setting-item">
+                <label>Dark Mode</label>
+                <input type="checkbox" checked>
+            </div>
+
+            <div class="setting-item">
+                <label>Language</label>
+                <select>
+                    <option>English</option>
+                    <option>Hindi</option>
+                    <option>Spanish</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="settings-card">
+
+            <h2>Notifications</h2>
+
+            <div class="setting-item">
+                <label>Email Notifications</label>
+                <input type="checkbox" checked>
+            </div>
+
+            <div class="setting-item">
+                <label>Processing Alerts</label>
+                <input type="checkbox" checked>
+            </div>
+
+        </div>
+
+        <div class="settings-card">
+
+            <h2>Security</h2>
+
+            <button class="setting-btn">
+                Change Password
+            </button>
+
+            <button class="setting-btn">
+                Two-Factor Authentication
+            </button>
+
+        </div>
+
+        <div class="settings-card danger">
+
+            <h2>Danger Zone</h2>
+
+            <button class="delete-btn">
+                Delete Account
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

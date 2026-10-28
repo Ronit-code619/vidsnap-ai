@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}My Projects | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/projects.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="projects-page">
+
+    <div class="page-header">
+        <h1>My Projects</h1>
+        <p>Manage all your AI-generated videos.</p>
+    </div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search your projects...">
+    </div>
+
+    <div class="projects-grid">
+
+        <div class="project-card">
+
+            <h3>Travel Reel</h3>
+
+            <span class="status completed">Completed</span>
+
+            <div class="project-buttons">
+
+                <button>Edit</button>
+
+                <button>Download</button>
+
+                <button>Delete</button>
+
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>Gaming Highlights</h3>
+
+            <span class="status processing">Processing</span>
+
+            <div class="project-buttons">
+
+                <button>View</button>
+
+                <button>Cancel</button>
+
+            </div>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>Business Ad</h3>
+
+            <span class="status draft">Draft</span>
+
+            <div class="project-buttons">
+
+                <button>Continue</button>
+
+                <button>Delete</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

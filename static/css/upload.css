@@ -1,0 +1,192 @@
+/* ==========================================
+   UPLOAD PAGE
+========================================== */
+
+.upload-page{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+    color:#fff;
+}
+
+.upload-header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.upload-header h1{
+    font-size:42px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.upload-header p{
+    color:#94A3B8;
+    font-size:18px;
+}
+
+/* ==========================================
+   UPLOAD BOX
+========================================== */
+
+.upload-box{
+    background:rgba(255,255,255,.05);
+    border:2px dashed rgba(124,58,237,.5);
+    border-radius:25px;
+    padding:60px 30px;
+    text-align:center;
+    backdrop-filter:blur(20px);
+    transition:.35s;
+    margin-bottom:40px;
+}
+
+.upload-box:hover{
+    border-color:#7C3AED;
+    transform:translateY(-5px);
+}
+
+.upload-box i{
+    font-size:70px;
+    color:#7C3AED;
+    margin-bottom:20px;
+}
+
+.upload-box h2{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.upload-box p{
+    color:#94A3B8;
+    margin-bottom:20px;
+}
+
+.browse-btn{
+    background:linear-gradient(135deg,#7C3AED,#2563EB);
+    color:#fff;
+    border:none;
+    padding:15px 35px;
+    border-radius:50px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.browse-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(124,58,237,.35);
+}
+
+/* ==========================================
+   SETTINGS GRID
+========================================== */
+
+.settings-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+    margin-bottom:40px;
+}
+
+.setting-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:25px;
+    backdrop-filter:blur(20px);
+}
+
+.setting-card label{
+    display:block;
+    margin-bottom:12px;
+    font-weight:600;
+}
+
+.setting-card select{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:none;
+    background:#1E293B;
+    color:white;
+    outline:none;
+}
+
+/* ==========================================
+   VIDEO PREVIEW
+========================================== */
+
+.preview-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:40px;
+}
+
+.preview-card h2{
+    margin-bottom:20px;
+}
+
+.preview-box{
+    height:320px;
+    border:2px dashed rgba(255,255,255,.1);
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.preview-box i{
+    font-size:70px;
+    color:#7C3AED;
+    margin-bottom:15px;
+}
+
+.preview-box p{
+    color:#94A3B8;
+}
+
+/* ==========================================
+   GENERATE BUTTON
+========================================== */
+
+.generate-btn{
+    width:100%;
+    padding:20px;
+    font-size:20px;
+    font-weight:700;
+    color:white;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    background:linear-gradient(135deg,#7C3AED,#2563EB);
+    transition:.3s;
+}
+
+.generate-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px rgba(124,58,237,.4);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    .settings-grid{
+        grid-template-columns:1fr;
+    }
+
+    .upload-header h1{
+        font-size:32px;
+    }
+
+    .preview-box{
+        height:220px;
+    }
+
+}

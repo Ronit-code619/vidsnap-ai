@@ -1,0 +1,547 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+
+
+<section class="dashboard">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fas fa-clapperboard"></i>
+
+            <span>VidSnap AI</span>
+
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <a href="/dashboard">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+
+
+            <li>
+                <a href="/upload">
+                    <i class="fas fa-upload"></i>
+                    Upload Video
+                </a>
+            </li>
+
+            <li>
+                <a href="/projects">
+                    <i class="fas fa-folder"></i>
+                    My Projects
+                </a>
+            </li>
+
+            <li>
+                <a href="/analytics">
+                    <i class="fas fa-chart-line"></i>
+                    Analytics
+                </a>
+            </li>
+
+            <li>
+                <a href="/profile">
+                    <i class="fas fa-user"></i>
+                    Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="/settings">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                </a>
+            </li>
+            <li class="logout-menu">
+               <a href="{{ url_for('logout') }}">
+                <i class="fas fa-right-from-bracket"></i>
+               Logout
+            </a>
+        </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="dashboard-content">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <h2>Dashboard</h2>
+
+            <div class="user">
+
+                <img src="https://ui-avatars.com/api/?name=User" alt="User">
+
+            </div>
+
+        </div>
+
+        <!-- Welcome -->
+         <a href="/projects" class="dashboard-btn">
+            <i class="fas fa-folder-open"></i>
+                My Projects
+         </a>
+
+
+<!-- Creator Memory — Featured Dashboard Section -->
+<section class="creator-memory-hero">
+    <div class="memory-content">
+        <div class="memory-badge">
+            <span class="memory-status-dot"></span>
+            VID SNAP INTELLIGENCE
+        </div>
+
+        <h1>
+            Your content has a
+            <span>second life.</span>
+        </h1>
+
+        <p class="memory-description">
+            Every video holds a moment worth rediscovering.
+            Search your past content, find the exact moment,
+            and transform it into your next viral Reel.
+        </p>
+
+        <div class="memory-features">
+            <div class="memory-feature">
+                <i class="fas fa-brain"></i>
+                <span>Smart Transcript Search</span>
+            </div>
+            <div class="memory-feature">
+                <i class="fas fa-clock"></i>
+                <span>Find Exact Moments</span>
+            </div>
+            <div class="memory-feature">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <span>Instant Reel Creation</span>
+            </div>
+        </div>
+
+        <a href="{{ url_for('creator_memory') }}" class="memory-cta">
+            Explore Creator Memory
+            <i class="fas fa-arrow-right"></i>
+        </a>
+
+        <div class="memory-footnote">
+            <i class="fas fa-infinity"></i>
+            Your videos. Your ideas. Never lose a moment.
+        </div>
+    </div>
+
+    <div class="memory-visual">
+        <div class="memory-orbit orbit-one"></div>
+        <div class="memory-orbit orbit-two"></div>
+
+        <div class="memory-glow"></div>
+
+        <div class="memory-center-icon">
+            <i class="fas fa-brain"></i>
+        </div>
+
+        <div class="memory-floating-card memory-card-top">
+            <i class="fas fa-magnifying-glass"></i>
+            <div>
+                <strong>Search your memories</strong>
+                <small>Find moments in seconds</small>
+            </div>
+        </div>
+
+        <div class="memory-floating-card memory-card-bottom">
+            <i class="fas fa-film"></i>
+            <div>
+                <strong>Moment discovered</strong>
+                <small>Ready to become a Reel</small>
+            </div>
+        </div>
+
+        <div class="memory-particle particle-one"></div>
+        <div class="memory-particle particle-two"></div>
+        <div class="memory-particle particle-three"></div>
+    </div>
+</section>
+
+        <section class="welcome-card">
+
+            <div>
+
+                <h1>Welcome back, {{ user_name }}</h1>
+
+                <p>Create viral reels in minutes using AI.</p>
+
+            </div>
+
+            <a href="/upload" class="upload-btn">
+
+                Upload Video
+
+            </a>
+
+        </section>
+
+        <!-- Statistics -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <i class="fas fa-video"></i>
+
+                <h2>48</h2>
+
+                <p>Videos Created</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fas fa-eye"></i>
+
+                <h2>1.2M</h2>
+
+                <p>Total Views</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fas fa-download"></i>
+
+                <h2>530</h2>
+
+                <p>Downloads</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i class="fas fa-star"></i>
+
+                <h2>Pro</h2>
+
+                <p>Current Plan</p>
+
+            </div>
+
+        </section>
+
+        <!-- Quick Tools -->
+
+        <section class="tools">
+
+            <h2>AI Tools</h2>
+
+            <div class="tool-grid">
+
+                <div class="tool-card">
+
+                    <i class="fas fa-magic"></i>
+
+                    <h3>AI Reel Generator</h3>
+
+                    <p>Create viral reels instantly.</p>
+
+                </div>
+
+                <div class="tool-card">
+
+                    <i class="fas fa-closed-captioning"></i>
+
+                    <h3>Auto Captions</h3>
+
+                    <p>Generate subtitles automatically.</p>
+
+                </div>
+
+                <div class="tool-card">
+
+                    <i class="fas fa-microphone"></i>
+
+                    <h3>AI Voice</h3>
+
+                    <p>Natural AI voiceovers.</p>
+
+                </div>
+
+                <div class="tool-card">
+
+                    <i class="fas fa-image"></i>
+
+                    <h3>Thumbnail AI</h3>
+
+                    <p>Create click-worthy thumbnails.</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</section>
+
+{% endblock %}
+
+<!-- Analytics -->
+
+<section class="dashboard-row">
+
+    <div class="analytics-card">
+
+        <h2>Analytics</h2>
+
+        <div class="chart-placeholder">
+
+            <i class="fas fa-chart-line"></i>
+
+            <p>Analytics Chart Coming Soon</p>
+
+        </div>
+
+    </div>
+
+    <div class="credits-card">
+
+        <h2>AI Credits</h2>
+
+        <h1>850</h1>
+
+        <p>Credits Remaining</p>
+
+        <a href="/pricing" class="buy-btn">Buy More</a>
+
+    </div>
+
+</section>
+
+<!-- Recent Projects -->
+
+<section class="recent-projects">
+
+    <h2>Recent Projects</h2>
+
+    <table>
+
+        <tr>
+
+            <th>Project</th>
+
+            <th>Status</th>
+
+            <th>Date</th>
+
+            <th>Action</th>
+
+        </tr>
+
+        <tr>
+
+            <td>Instagram Reel</td>
+
+            <td><span class="completed">Completed</span></td>
+
+            <td>Today</td>
+
+            <td><button>View</button></td>
+
+        </tr>
+
+        <tr>
+
+            <td>YouTube Short</td>
+
+            <td><span class="processing">Processing</span></td>
+
+            <td>Yesterday</td>
+
+            <td><button>Open</button></td>
+
+        </tr>
+
+        <tr>
+
+            <td>TikTok Video</td>
+
+            <td><span class="completed">Completed</span></td>
+
+            <td>2 Days Ago</td>
+
+            <td><button>Download</button></td>
+
+        </tr>
+
+    </table>
+
+</section>
+
+<!-- ================= TOPBAR ================= -->
+
+<div class="topbar">
+
+    <div>
+
+        <h2>Dashboard</h2>
+
+        <p class="top-subtitle">
+            Welcome back! Ready to create your next viral video?
+        </p>
+
+    </div>
+
+    <div class="top-right">
+
+        <div class="search-box">
+
+            <i class="fas fa-search"></i>
+
+            <input type="text"
+                   placeholder="Search projects...">
+
+        </div>
+
+        <button class="icon-btn">
+
+            <i class="fas fa-bell"></i>
+
+            <span class="notification-dot"></span>
+
+        </button>
+
+        <button class="icon-btn">
+
+            <i class="fas fa-moon"></i>
+
+        </button>
+
+        <div class="profile">
+
+            <img src="https://ui-avatars.com/api/?name={{ user_name }}&background=7C3AED&color=fff"alt="{{ user_name }}">
+
+            <div>
+
+                 <h4>{{ user_name }}</h4>
+
+                <small>Free Member</small>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= QUICK ACTIONS ================= -->
+
+<section class="quick-actions">
+
+    <div class="action-card">
+
+        <i class="fas fa-upload"></i>
+
+        <h3>Upload Video</h3>
+
+        <p>Upload videos for AI editing.</p>
+
+    </div>
+
+    <div class="action-card">
+
+        <i class="fas fa-magic"></i>
+
+        <h3>Generate Reel</h3>
+
+        <p>Create a viral reel instantly.</p>
+
+    </div>
+
+    <div class="action-card">
+
+        <i class="fas fa-language"></i>
+
+        <h3>Auto Captions</h3>
+
+        <p>Generate subtitles automatically.</p>
+
+    </div>
+
+    <div class="action-card">
+
+        <i class="fas fa-download"></i>
+
+        <h3>Downloads</h3>
+
+        <p>View exported videos.</p>
+
+    </div>
+
+</section>
+
+<!-- ================= RECENT ACTIVITY ================= -->
+
+<section class="activity">
+
+    <h2>Recent Activity</h2>
+
+    <div class="activity-item">
+
+        <i class="fas fa-check-circle"></i>
+
+        <div>
+
+            <h4>Instagram Reel Exported</h4>
+
+            <small>5 minutes ago</small>
+
+        </div>
+
+    </div>
+
+    <div class="activity-item">
+
+        <i class="fas fa-video"></i>
+
+        <div>
+
+            <h4>New Video Uploaded</h4>
+
+            <small>25 minutes ago</small>
+
+        </div>
+
+    </div>
+
+    <div class="activity-item">
+
+        <i class="fas fa-microphone"></i>
+
+        <div>
+
+            <h4>AI Voice Generated</h4>
+
+            <small>1 hour ago</small>
+
+        </div>
+
+    </div>
+
+</section>

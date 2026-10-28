@@ -1,0 +1,195 @@
+/* ==========================================
+   PROJECTS PAGE
+========================================== */
+
+.projects-page{
+    max-width:1200px;
+    margin:auto;
+    padding:120px 30px 50px;
+}
+
+.page-header{
+    margin-bottom:40px;
+}
+
+.page-header h1{
+    font-size:42px;
+    color:#fff;
+    margin-bottom:10px;
+}
+
+.page-header p{
+    color:#94A3B8;
+    font-size:18px;
+}
+
+/* ==========================================
+   SEARCH BOX
+========================================== */
+
+.search-box{
+    margin-bottom:40px;
+}
+
+.search-box input{
+    width:100%;
+    padding:18px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:#1E293B;
+    color:white;
+    font-size:16px;
+}
+
+/* ==========================================
+   PROJECT GRID
+========================================== */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+/* ==========================================
+   PROJECT CARD
+========================================== */
+
+.project-card{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    transition:.35s;
+
+}
+
+.project-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(124,58,237,.3);
+
+}
+
+.project-card h3{
+
+    color:#fff;
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.status{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:50px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:25px;
+
+}
+
+.completed{
+
+    background:#10B981;
+
+    color:white;
+
+}
+
+.processing{
+
+    background:#F59E0B;
+
+    color:white;
+
+}
+
+.draft{
+
+    background:#64748B;
+
+    color:white;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+.project-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+}
+
+.project-buttons button{
+
+    flex:1;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:linear-gradient(135deg,#7C3AED,#2563EB);
+
+    transition:.3s;
+
+}
+
+.project-buttons button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(124,58,237,.35);
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    .page-header h1{
+
+        font-size:32px;
+
+    }
+
+    .project-buttons{
+
+        flex-direction:column;
+
+    }
+
+}

@@ -1,0 +1,119 @@
+
+{% extends "base.html" %}
+
+{% block title %}Creator Memory | VidSnap AI{% endblock %}
+
+{% block content %}
+<section class="upload-page">
+
+    <div class="upload-header">
+        <h1>🧠 Creator Memory</h1>
+        <p>Search your video library and rediscover moments worth sharing.</p>
+    </div>
+
+    <div class="preview-card">
+        <form action="{{ url_for('creator_memory') }}" method="GET">
+            <label for="memory-search">
+                What are you looking for?
+            </label>
+
+            <input
+                id="memory-search"
+                type="search"
+                name="q"
+                value="{{ search_query }}"
+                placeholder="Try gaming, motivation, business..."
+                maxlength="200"
+                required
+                style="width: 100%; padding: 12px; margin: 12px 0;"
+            >
+
+            <button type="submit" class="generate-btn">
+                🔍 Search My Videos
+            </button>
+        </form>
+    </div>
+
+    {% if search_query %}
+        <div class="preview-card" style="margin-top: 24px;">
+            <h2>Search Results</h2>
+            <p>
+                Results for <strong>{{ search_query }}</strong>
+            </p>
+
+            {% if results %}
+                <p>Found {{ results|length }} matching passages.</p>
+
+                {% for segment, video in results %}
+                    <div class="setting-card"
+                         style="margin: 16px 0; padding: 18px;">
+
+                        <h3>{{ video.title or video.original_filename }}</h3>
+
+                        <p>
+                            <strong>Video:</strong>
+                            {{ video.original_filename }}
+                        </p>
+
+                        <p>
+                            <strong>Timestamp:</strong>
+                            {{ "%.2f"|format(segment.start_seconds) }}s –
+                            {{ "%.2f"|format(segment.end_seconds) }}s
+                        </p>
+
+                        <p>{{ segment.transcript_text }}</p>
+
+                        <form action="{{ url_for('generate_clip') }}" method="POST">
+                        <input
+                        type="hidden"
+                        name="video_id"
+                        value="{{ video.id }}"
+                        >
+
+                        <input
+                        type="hidden"
+                        name="start_seconds"
+                        value="{{ [segment.start_seconds - 2, 0]|max }}"
+                        >
+
+                        <input
+                        type="hidden"
+                        name="duration"
+                        value="{{ [[((segment.end_seconds - segment.start_seconds + 4)|round(0, 'ceil')|int), 60]|min, 5]|max }}"
+                        >
+
+                      <label style="display: flex; align-items: center; gap: 10px; margin: 14px 0; cursor: pointer;">
+                      <input
+                      type="checkbox"
+                      name="captions"
+                      value="on"
+                      checked
+                      style="width: 18px; height: 18px;"
+                      >
+                     <span>✨ Enable Auto Captions</span>
+                     </label>
+
+                    <button type="submit" class="generate-btn">
+                     ✂️ Generate Reel from This Moment
+                    </button>
+                    </form>
+                </div>
+                {% endfor %}
+
+            {% else %}
+                <p>
+                    No matching passages found in your processed videos.
+                    Try a different keyword or phrase.
+                </p>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <p style="margin-top: 24px;">
+        <a href="{{ url_for('upload') }}">
+            ← Back to Upload Studio
+        </a>
+    </p>
+
+</section>
+{% endblock %}

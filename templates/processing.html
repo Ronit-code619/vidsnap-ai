@@ -1,0 +1,150 @@
+
+{% extends "base.html" %}
+
+{% block title %}AI Processing Results | VidSnap AI{% endblock %}
+
+{% block content %}
+<section class="upload-page">
+
+    <div class="upload-header">
+        <h1>AI Processing Results</h1>
+        <p>VidSnap AI has analyzed your video's speech.</p>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <p class="upload-message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if processing_complete %}
+
+        <div class="preview-card">
+            <h2>✅ Transcription Complete</h2>
+
+            <p>
+                Detected language:
+                <strong>{{ detected_language }}</strong>
+            </p>
+
+            <h3>Transcript with timestamps</h3>
+
+            {% if transcript_segments %}
+                <div class="transcript-list">
+                    {% for segment in transcript_segments %}
+                        <div class="transcript-item"
+                             style="padding: 12px; margin: 8px 0; border-radius: 8px; background: rgba(128,128,128,0.12);">
+
+                            <strong>
+                                {{ "%.2f"|format(segment.start) }}s –
+                                {{ "%.2f"|format(segment.end) }}s
+                            </strong>
+
+                            <p>{{ segment.text }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No speech segments were detected in this video.</p>
+            {% endif %}
+        </div>
+
+        <!-- AI Hook Suggestions: outside the transcript condition -->
+        <div class="preview-card" style="margin-top: 28px;">
+            <h2>✨ AI Hook Suggestions</h2>
+            <p>Potential moments selected from your transcript.</p>
+
+            {% if hook_suggestions is defined and hook_suggestions %}
+
+                {% for hook in hook_suggestions %}
+                    <div class="setting-card"
+                         style="margin: 16px 0; padding: 18px;">
+
+                        <h3>{{ hook.hook_type }}</h3>
+
+                        <p>
+                            <strong>Start:</strong>
+                            {{ hook.start_seconds }} seconds
+                            <br>
+
+                            <strong>End:</strong>
+                            {{ hook.end_seconds }} seconds
+                            <br>
+
+                            <strong>Duration:</strong>
+                            {{ hook.duration }} seconds
+                            <br>
+
+                            <strong>Hook score:</strong>
+                            {{ hook.score }}
+                        </p>
+
+                        <p>{{ hook.text }}</p>
+
+                        <form action="{{ url_for('generate_clip') }}"
+                              method="POST">
+
+
+                        <input
+                            type="hidden"
+                            name="start_seconds"
+                            value="{{ [hook.start_seconds - 2, 0]|max }}"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="duration"
+                            value="{{ [[((hook.end_seconds - hook.start_seconds + 4)|round(0, 'ceil')|int), 60]|min, 5]|max }}"
+                        >
+
+                        <label style="display: flex; align-items: center; gap: 10px; margin: 14px 0; cursor: pointer;">
+                        <input
+                        type="checkbox"
+                        name="captions"
+                        value="on"
+                        checked
+                        style="width: 18px; height: 18px;"
+                        >
+                        <span>✨ Enable Auto Captions</span>
+                        </label>
+
+
+
+                            <button type="submit" class="generate-btn">
+                            ✨ Generate Smart Reel ({{ [[((hook.end_seconds - hook.start_seconds + 4)|round(0, 'ceil')|int), 60]|min, 5]|max }} sec)
+                            </button>
+                        </form>
+                    </div>
+                {% endfor %}
+
+            {% else %}
+                <p>
+                    No hook suggestions were detected.
+                    Try another video or review the transcript.
+                </p>
+            {% endif %}
+        </div>
+
+        <p>Your transcript has been saved successfully.</p>
+
+    {% else %}
+
+        <div class="preview-card">
+            <h2>Ready to process</h2>
+            <p>Upload a video and process it to see transcript and hook suggestions.</p>
+
+            <a href="{{ url_for('upload') }}" class="browse-btn">
+                Go to Upload Studio
+            </a>
+        </div>
+
+    {% endif %}
+
+    <p style="margin-top: 24px;">
+        <a href="{{ url_for('upload') }}">← Back to Upload Studio</a>
+    </p>
+
+</section>
+{% endblock %}

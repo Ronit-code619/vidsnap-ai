@@ -1,0 +1,319 @@
+/* ==========================================
+   AI EDITOR PAGE
+========================================== */
+
+.editor-page{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:30px;
+
+    padding:40px;
+
+    margin-top:100px;   /* Push content below navbar */
+
+    min-height:80vh;
+
+}
+
+/* ==========================================
+   VIDEO PANEL
+========================================== */
+
+.video-panel{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    backdrop-filter:blur(20px);
+
+}
+
+.video-preview{
+
+    height:500px;
+
+    border:2px dashed rgba(124,58,237,.5);
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.3s;
+
+}
+
+.video-preview:hover{
+
+    border-color:#7C3AED;
+
+}
+
+.video-preview i{
+
+    font-size:90px;
+
+    color:#7C3AED;
+
+    margin-bottom:20px;
+
+}
+
+.video-preview p{
+
+    font-size:22px;
+
+    color:#CBD5E1;
+
+}
+
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.timeline{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.timeline span{
+
+    color:#CBD5E1;
+
+}
+
+.timeline-bar{
+
+    flex:1;
+
+    height:8px;
+
+    background:#1E293B;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.progress{
+
+    width:35%;
+
+    height:100%;
+
+    background:linear-gradient(90deg,#7C3AED,#2563EB);
+
+}
+
+/* ==========================================
+   RIGHT PANEL
+========================================== */
+
+.editor-sidebar{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    backdrop-filter:blur(20px);
+
+}
+
+.editor-sidebar h2{
+
+    margin-bottom:25px;
+
+}
+
+.setting{
+
+    margin-bottom:20px;
+
+}
+
+.setting label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    color:#CBD5E1;
+
+    font-weight:600;
+
+}
+
+.setting select{
+
+    width:100%;
+
+    padding:14px;
+
+    background:#1E293B;
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    outline:none;
+
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.generate-btn{
+
+    width:100%;
+
+    padding:18px;
+
+    margin-top:25px;
+
+    border:none;
+
+    border-radius:15px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:linear-gradient(135deg,#7C3AED,#2563EB);
+
+    transition:.3s;
+
+}
+
+.generate-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 20px 35px rgba(124,58,237,.4);
+
+}
+
+/* ==========================================
+   TOOLBAR
+========================================== */
+
+.tool-bar{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    padding:25px;
+
+    background:rgba(255,255,255,.05);
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+}
+
+.tool-bar button{
+
+    padding:14px 22px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1E293B;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.tool-bar button:hover{
+
+    background:#7C3AED;
+
+    transform:translateY(-3px);
+
+}
+
+.tool-bar i{
+
+    margin-right:8px;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .editor-page{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .tool-bar{
+
+        flex-wrap:wrap;
+
+    }
+
+    .video-preview{
+
+        height:300px;
+
+    }
+
+}
+
+.editor-sidebar h2{
+
+    margin-top:0;
+
+    margin-bottom:25px;
+
+    font-size:32px;
+
+}

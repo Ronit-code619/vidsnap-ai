@@ -1,0 +1,149 @@
+.settings-page{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:120px 30px 60px;
+
+}
+
+.page-header{
+
+    margin-bottom:40px;
+
+}
+
+.page-header h1{
+
+    color:white;
+
+    font-size:42px;
+
+}
+
+.page-header p{
+
+    color:#94A3B8;
+
+}
+
+.settings-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+    gap:30px;
+
+}
+
+.settings-card{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.settings-card h2{
+
+    color:white;
+
+    margin-bottom:25px;
+
+}
+
+.setting-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+    color:#CBD5E1;
+
+}
+
+.setting-item select{
+
+    background:#1E293B;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    padding:10px;
+
+}
+
+.setting-btn{
+
+    width:100%;
+
+    margin-bottom:15px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#7C3AED,#2563EB);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.setting-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.danger{
+
+    border:1px solid rgba(255,0,0,.3);
+
+}
+
+.delete-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#DC2626;
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.delete-btn:hover{
+
+    background:#B91C1C;
+
+}

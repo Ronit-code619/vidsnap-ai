@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Download | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/download.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="download-page">
+
+    <div class="download-card">
+
+        <div class="success-icon">
+            <i class="fas fa-circle-check"></i>
+        </div>
+
+        <h1>Your AI Video is Ready!</h1>
+
+        <p>
+            Congratulations! Your video has been successfully generated.
+            Preview it below or download it instantly.
+        </p>
+
+        <div class="video-preview">
+
+            <video controls poster="{{ url_for('static', filename='images/video-thumbnail.jpg') }}">
+
+                <source src="#" type="video/mp4">
+
+                Your browser does not support HTML5 video.
+
+            </video>
+
+        </div>
+
+        <div class="download-buttons">
+
+            <button class="download-btn">
+                <i class="fas fa-download"></i>
+                Download Video
+            </button>
+
+            <button class="share-btn">
+                <i class="fas fa-share-nodes"></i>
+                Share
+            </button>
+
+            <button class="edit-btn">
+                <i class="fas fa-pen"></i>
+                Edit Again
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Pricing | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/pricing.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="pricing-section">
+
+    <div class="pricing-header">
+
+        <h1>Choose Your Plan</h1>
+
+        <p>Unlock the power of AI video editing.</p>
+
+    </div>
+
+    <div class="pricing-grid">
+
+        <!-- Free -->
+
+        <div class="price-card">
+
+            <h2>Free</h2>
+
+            <h3>₹0<span>/month</span></h3>
+
+            <ul>
+
+                <li>✔ 5 AI Videos / Month</li>
+
+                <li>✔ 720p Export</li>
+
+                <li>✔ Watermark</li>
+
+                <li>✔ Basic Templates</li>
+
+            </ul>
+
+            <button>Get Started</button>
+
+        </div>
+
+        <!-- Pro -->
+
+        <div class="price-card featured">
+
+            <div class="badge">Most Popular</div>
+
+            <h2>Pro</h2>
+
+            <h3>₹999<span>/month</span></h3>
+
+            <ul>
+
+                <li>✔ Unlimited Videos</li>
+
+                <li>✔ 4K Export</li>
+
+                <li>✔ AI Captions</li>
+
+                <li>✔ AI Voice</li>
+
+                <li>✔ No Watermark</li>
+
+                <li>✔ Priority Support</li>
+
+            </ul>
+
+            <button>Upgrade Now</button>
+
+        </div>
+
+        <!-- Enterprise -->
+
+        <div class="price-card">
+
+            <h2>Enterprise</h2>
+
+            <h3>Custom</h3>
+
+            <ul>
+
+                <li>✔ Unlimited Everything</li>
+
+                <li>✔ Team Workspace</li>
+
+                <li>✔ API Access</li>
+
+                <li>✔ Dedicated Manager</li>
+
+            </ul>
+
+            <button>Contact Sales</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

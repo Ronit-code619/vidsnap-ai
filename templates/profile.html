@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Profile | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="profile-page">
+
+    <!-- Profile Card -->
+
+    <div class="profile-card">
+
+        <div class="profile-image">
+
+            <img
+                src="https://ui-avatars.com/api/?name={{ user.name }}&background=7C3AED&color=fff&size=200"
+                alt="{{ user.name }}"
+            >
+
+        </div>
+
+        <h2>{{ user.name }}</h2>
+
+        <p>VidSnap AI Creator</p>
+
+        <button
+            type="button"
+            class="change-photo-btn"
+        >
+            Change Photo
+        </button>
+
+    </div>
+
+
+    <!-- Profile Details -->
+
+
+<form action="{{ url_for('update_profile') }}" method="POST">
+    <div class="form-group">
+        <label for="name">Full Name</label>
+        <input
+            type="text"
+            id="name"
+            name="name"
+            value="{{ user.name }}"
+            required
+            maxlength="100"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            value="{{ user.email }}"
+            readonly
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="country">Country</label>
+        <input
+            type="text"
+            id="country"
+            name="country"
+            value="{{ user.country or '' }}"
+            placeholder="Enter your country"
+            maxlength="100"
+        >
+    </div>
+
+    <div class="form-group">
+        <label>Account Created</label>
+        <input
+            type="text"
+            value="{{ user.created_at }}"
+            readonly
+        >
+    </div>
+
+    <div class="form-group">
+        <label>Membership</label>
+        <input type="text" value="Free Member" readonly>
+    </div>
+
+    <button type="submit" class="save-btn">Save Changes</button>
+</form>
+
+
+</section>
+
+{% endblock %}

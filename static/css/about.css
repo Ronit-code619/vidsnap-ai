@@ -1,0 +1,173 @@
+.about-hero{
+
+    padding:120px 20px 80px;
+
+    text-align:center;
+
+}
+
+.about-hero h1{
+
+    font-size:52px;
+
+    color:white;
+
+    margin-bottom:20px;
+
+}
+
+.about-hero p{
+
+    color:#94A3B8;
+
+    max-width:750px;
+
+    margin:auto;
+
+    font-size:20px;
+
+}
+
+.mission-section{
+
+    padding:60px 20px;
+
+}
+
+.mission-section .container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+.mission-card{
+
+    background:rgba(255,255,255,.05);
+
+    padding:35px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+}
+
+.mission-card h2{
+
+    color:white;
+
+    margin-bottom:15px;
+
+}
+
+.mission-card p{
+
+    color:#CBD5E1;
+
+}
+
+.features-about{
+
+    padding:70px 20px;
+
+    text-align:center;
+
+}
+
+.features-about h2{
+
+    color:white;
+
+    margin-bottom:40px;
+
+}
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+.feature-box{
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:20px;
+
+    padding:30px;
+
+}
+
+.feature-box i{
+
+    font-size:45px;
+
+    color:#7C3AED;
+
+    margin-bottom:15px;
+
+}
+
+.feature-box h3{
+
+    color:white;
+
+    margin-bottom:10px;
+
+}
+
+.feature-box p{
+
+    color:#CBD5E1;
+
+}
+
+.stats-section{
+
+    padding:80px 20px;
+
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+
+    gap:25px;
+
+}
+
+.stat{
+
+    text-align:center;
+
+    background:rgba(255,255,255,.05);
+
+    padding:30px;
+
+    border-radius:20px;
+
+}
+
+.stat h2{
+
+    color:#7C3AED;
+
+    font-size:42px;
+
+}
+
+.stat p{
+
+    color:#CBD5E1;
+
+}

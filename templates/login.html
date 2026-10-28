@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block title %}Login | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="login-page">
+
+    <div class="login-container">
+
+        <!-- Left Side -->
+
+        <div class="login-left">
+
+            <div class="login-card">
+
+                <div class="logo-box">
+                    <i class="fa-solid fa-clapperboard"></i>
+                </div>
+
+                <h1>Welcome Back</h1>
+
+                <p>
+                    Sign in to continue creating AI-powered
+                    YouTube Shorts, Instagram Reels and TikTok videos.
+                </p>
+
+                <!-- LOGIN FORM -->
+
+                <form method="POST" action="/login">
+
+                    <div class="input-group">
+
+                        <label>Email Address</label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label>Password</label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Enter password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="login-options">
+
+                        <label>
+
+                            <input type="checkbox">
+
+                            Remember me
+
+                        </label>
+
+                        <a href="/forgot-password">
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="login-btn"
+                    >
+                        Sign In
+                    </button>
+
+                </form>
+
+                <!-- END LOGIN FORM -->
+
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+
+                <div class="social-login">
+
+                    <button type="button">
+
+                        <i class="fab fa-google"></i>
+
+                        Continue with Google
+
+                    </button>
+
+
+                    <button type="button">
+
+                        <i class="fab fa-github"></i>
+
+                        Continue with GitHub
+
+                    </button>
+
+                </div>
+
+
+                <p class="signup-link">
+
+                    Don't have an account?
+
+                    <a href="/signup">
+                        Create Account
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Right Side -->
+
+        <div class="login-right">
+
+            <div class="login-info">
+
+                <h2>
+                    AI Video Creation Made Simple
+                </h2>
+
+                <p>
+                    Upload once.
+                    Generate unlimited Shorts,
+                    Reels and TikTok videos with AI.
+                </p>
+
+
+                <div class="info-box">
+
+                    <i class="fas fa-video"></i>
+
+                    AI Video Editing
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <i class="fas fa-microphone"></i>
+
+                    AI Voice Generation
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <i class="fas fa-closed-captioning"></i>
+
+                    Auto Captions
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <i class="fas fa-rocket"></i>
+
+                    One Click Export
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

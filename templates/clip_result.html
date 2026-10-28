@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+
+{% block title %}Your Reel | VidSnap AI{% endblock %}
+
+{% block content %}
+<section class="upload-page">
+    <div class="upload-header">
+        <h1>Your Reel Is Ready!</h1>
+        <p>Your video clip has been generated successfully.</p>
+    </div>
+
+    <div class="preview-card">
+        <h2>Preview Your Clip</h2>
+        <p>Selected duration: {{ duration }} seconds</p>
+
+        <video controls playsinline
+               style="width:100%; max-width:420px; max-height:720px;">
+            <source src="{{ clip_url }}" type="video/mp4">
+            Your browser does not support video playback.
+        </video>
+
+        <div style="margin-top:24px;">
+            <a href="{{ download_url }}"
+               class="generate-btn"
+               style="display:inline-block; text-decoration:none;">
+                ⬇ Download Reel
+            </a>
+        </div>
+    </div>
+
+    <p style="margin-top:24px;">
+        <a href="{{ url_for('upload') }}">← Create another Reel</a>
+    </p>
+</section>
+{% endblock %}

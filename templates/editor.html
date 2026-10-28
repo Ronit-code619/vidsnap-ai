@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}AI Editor | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/editor.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="editor-page">
+
+    <!-- Left Side -->
+    <div class="video-panel">
+
+        <div class="video-preview">
+
+            <i class="fas fa-video"></i>
+
+            <p>Video Preview</p>
+
+        </div>
+
+        <div class="timeline">
+
+            <span>00:00</span>
+
+            <div class="timeline-bar">
+
+                <div class="progress"></div>
+
+            </div>
+
+            <span>00:45</span>
+
+        </div>
+
+    </div>
+
+    <!-- Right Side -->
+    <div class="editor-sidebar">
+
+        <h2>AI Settings</h2>
+
+        <div class="setting">
+
+            <label>AI Voice</label>
+
+            <select>
+
+                <option>Male Voice</option>
+
+                <option>Female Voice</option>
+
+            </select>
+
+        </div>
+
+        <div class="setting">
+
+            <label>Language</label>
+
+            <select>
+
+                <option>English</option>
+
+                <option>Hindi</option>
+
+                <option>Spanish</option>
+
+            </select>
+
+        </div>
+
+        <div class="setting">
+
+            <label>Caption Style</label>
+
+            <select>
+
+                <option>Modern</option>
+
+                <option>Bold</option>
+
+                <option>Minimal</option>
+
+            </select>
+
+        </div>
+
+        <div class="setting">
+
+            <label>Video Quality</label>
+
+            <select>
+
+                <option>1080p</option>
+
+                <option>720p</option>
+
+                <option>4K</option>
+
+            </select>
+
+        </div>
+
+        <button class="generate-btn">
+
+             Generate Final Reel
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Bottom Toolbar -->
+
+<div class="tool-bar">
+
+    <button><i class="fas fa-cut"></i> Trim</button>
+
+    <button><i class="fas fa-crop"></i> Crop</button>
+
+    <button><i class="fas fa-bolt"></i> Speed</button>
+
+    <button><i class="fas fa-image"></i> Effects</button>
+
+    <button><i class="fas fa-closed-captioning"></i> Captions</button>
+
+    <button><i class="fas fa-music"></i> Music</button>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,115 @@
+.maintenance-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:120px 20px;
+
+}
+
+.maintenance-card{
+
+    max-width:750px;
+
+    width:100%;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:25px;
+
+    text-align:center;
+
+    padding:60px 40px;
+
+}
+
+.maintenance-icon{
+
+    font-size:90px;
+
+    color:#F59E0B;
+
+    margin-bottom:25px;
+
+}
+
+.maintenance-card h1{
+
+    color:white;
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+}
+
+.maintenance-card p{
+
+    color:#CBD5E1;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+.maintenance-info{
+
+    margin-bottom:40px;
+
+}
+
+.info-item{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:white;
+
+    margin:18px 0;
+
+}
+
+.info-item i{
+
+    color:#F59E0B;
+
+}
+
+.home-btn{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    background:linear-gradient(135deg,#7C3AED,#2563EB);
+
+    color:white;
+
+    padding:15px 35px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.home-btn:hover{
+
+    transform:translateY(-3px);
+
+}

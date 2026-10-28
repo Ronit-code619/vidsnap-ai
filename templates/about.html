@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block title %}About Us | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="about-hero">
+
+    <div class="container">
+
+        <h1>About VidSnap AI</h1>
+
+        <p>
+            We help creators turn long videos into engaging short-form content
+            using the power of Artificial Intelligence.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="mission-section">
+
+    <div class="container">
+
+        <div class="mission-card">
+
+            <h2>🚀 Our Mission</h2>
+
+            <p>
+                Make professional video editing simple, fast, and accessible to everyone.
+            </p>
+
+        </div>
+
+        <div class="mission-card">
+
+            <h2>🎯 Our Vision</h2>
+
+            <p>
+                Become the world's smartest AI-powered reel creation platform.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="features-about">
+
+    <div class="container">
+
+        <h2>Why Choose VidSnap AI?</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-box">
+
+                <i class="fas fa-bolt"></i>
+
+                <h3>Lightning Fast</h3>
+
+                <p>Create AI reels in minutes.</p>
+
+            </div>
+
+            <div class="feature-box">
+
+                <i class="fas fa-brain"></i>
+
+                <h3>AI Powered</h3>
+
+                <p>Smart captions, voiceovers, and editing.</p>
+
+            </div>
+
+            <div class="feature-box">
+
+                <i class="fas fa-cloud"></i>
+
+                <h3>Cloud Based</h3>
+
+                <p>Edit from anywhere without installing software.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="stats-section">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat">
+
+                <h2>50K+</h2>
+
+                <p>Users</p>
+
+            </div>
+
+            <div class="stat">
+
+                <h2>2M+</h2>
+
+                <p>Videos Generated</p>
+
+            </div>
+
+            <div class="stat">
+
+                <h2>150+</h2>
+
+                <p>Countries</p>
+
+            </div>
+
+            <div class="stat">
+
+                <h2>99.9%</h2>
+
+                <p>Uptime</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

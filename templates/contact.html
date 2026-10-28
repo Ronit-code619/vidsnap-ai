@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="contact-page">
+
+    <div class="contact-header">
+
+        <h1>Get in Touch</h1>
+
+        <p>Have questions or feedback? We'd love to hear from you.</p>
+
+    </div>
+
+    <div class="contact-container">
+
+        <!-- Contact Form -->
+
+        <div class="contact-form">
+
+            <h2>Send us a Message</h2>
+
+            <form>
+
+                <input type="text" placeholder="Full Name" required>
+
+                <input type="email" placeholder="Email Address" required>
+
+                <input type="text" placeholder="Subject" required>
+
+                <textarea rows="6" placeholder="Write your message..." required></textarea>
+
+                <button type="submit">Send Message</button>
+
+            </form>
+
+        </div>
+
+        <!-- Contact Info -->
+
+        <div class="contact-info">
+
+            <h2>Contact Information</h2>
+
+            <div class="info-box">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <p>support@vidsnapai.com</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+91 98765 43210</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="fas fa-location-dot"></i>
+                <div>
+                    <h4>Location</h4>
+                    <p>Bhubaneswar, Odisha, India</p>
+                </div>
+            </div>
+
+            <div class="social-links">
+
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-twitter"></i></a>
+
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+
+                <a href="#"><i class="fab fa-github"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

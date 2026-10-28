@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}404 - Page Not Found | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/error.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="error-page">
+
+    <div class="error-card">
+
+        <h1>404</h1>
+
+        <h2>Oops! Page Not Found</h2>
+
+        <p>
+            The page you're looking for doesn't exist or has been moved.
+        </p>
+
+        <div class="error-buttons">
+
+            <a href="/" class="home-btn">
+
+                <i class="fas fa-home"></i>
+
+                Back to Home
+
+            </a>
+
+            <a href="/contact" class="contact-btn">
+
+                <i class="fas fa-headset"></i>
+
+                Contact Support
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

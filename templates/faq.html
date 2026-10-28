@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/faq.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="faq-page">
+
+    <div class="faq-header">
+
+        <h1>Frequently Asked Questions</h1>
+
+        <p>Find answers to the most common questions about VidSnap AI.</p>
+
+    </div>
+
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <button class="faq-question">
+                What is VidSnap AI?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>VidSnap AI is an AI-powered platform that converts long videos into engaging short-form content for Instagram Reels, YouTube Shorts, and TikTok.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Which video formats are supported?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>We support MP4, MOV, AVI, MKV, and WEBM formats.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Can I export videos in 4K?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes, 4K export is available with the Pro plan.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Is my uploaded video secure?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Yes. Your videos are securely processed and only accessible by your account.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                How long does AI processing take?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>Most videos are processed within 1–5 minutes depending on their length.</p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+const questions = document.querySelectorAll(".faq-question");
+
+questions.forEach(question => {
+
+    question.addEventListener("click", () => {
+
+        const answer = question.nextElementSibling;
+
+        answer.classList.toggle("show");
+
+    });
+
+});
+</script>
+
+{% endblock %}

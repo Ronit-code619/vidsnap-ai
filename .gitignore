@@ -1,0 +1,15 @@
+﻿.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+uploads/
+processed/
+*.log
+*.sqlite
+*.sqlite3
+*.db
+
+# Unlicensed or unverified audio files
+static/songs/*.mp3

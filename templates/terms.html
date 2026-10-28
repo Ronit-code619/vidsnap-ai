@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Terms & Conditions | VidSnap AI{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/legal.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="legal-page">
+
+    <div class="legal-container">
+
+        <h1>Terms & Conditions</h1>
+
+        <p class="updated">Last Updated: August 2026</p>
+
+        <h2>1. Acceptance of Terms</h2>
+
+        <p>
+            By using VidSnap AI, you agree to follow these Terms and Conditions.
+        </p>
+
+        <h2>2. User Accounts</h2>
+
+        <ul>
+            <li>Provide accurate account information.</li>
+            <li>Keep your password secure.</li>
+            <li>You are responsible for your account activity.</li>
+        </ul>
+
+        <h2>3. Acceptable Use</h2>
+
+        <ul>
+            <li>Do not upload illegal or harmful content.</li>
+            <li>Do not attempt to misuse the platform.</li>
+            <li>Respect copyright and intellectual property.</li>
+        </ul>
+
+        <h2>4. Payments</h2>
+
+        <p>
+            Paid subscriptions renew according to the selected billing cycle unless cancelled.
+        </p>
+
+        <h2>5. Limitation of Liability</h2>
+
+        <p>
+            VidSnap AI is provided "as is" without guarantees of uninterrupted service.
+        </p>
+
+        <h2>6. Changes to These Terms</h2>
+
+        <p>
+            We may update these Terms from time to time. Continued use of the platform means you accept the updated Terms.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
