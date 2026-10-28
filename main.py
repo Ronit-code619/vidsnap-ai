@@ -4,6 +4,7 @@ from video_processor import (
     find_hooks,
     create_srt_captions,
 )
+from flask_wtf.csrf import CSRFProtect
 from video_processor import transcribe_video
 import uuid
 from flask import send_from_directory
@@ -19,9 +20,22 @@ load_dotenv()
 
 app = Flask(__name__)
 
-app.secret_key = os.getenv("SECRET_KEY")
-if not app.secret_key:
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY")
+if not app.config["SECRET_KEY"]:
     raise RuntimeError("SECRET_KEY environment variable must be set")
+
+# Secure session cookies in production (Railway uses HTTPS).
+is_production = os.getenv("SESSION_COOKIE_SECURE", "0") == "1"
+
+app.config.update(
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE="Lax",
+    SESSION_COOKIE_SECURE=is_production,
+    WTF_CSRF_ENABLED=True,
+    WTF_CSRF_TIME_LIMIT=3600,
+)
+
+csrf = CSRFProtect(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -681,7 +695,7 @@ def login():
 # =========================================================
 # SIGNUP
 # =========================================================
-@app.route("/logout")
+@app.route("/logout", methods=["POST"])
 def logout():
 
     session.clear()
@@ -938,15 +952,6 @@ def editor():
 # DATABASE TEST
 # =========================================================
 
-
-@app.route("/db-test")
-def db_test():
-    try:
-        db.session.execute(db.text("SELECT 1"))
-        return "MySQL Database Connected Successfully!"
-    except Exception:
-        app.logger.exception("Database connectivity check failed")
-        return "Database connection failed.", 503
 
 
 # =========================================================

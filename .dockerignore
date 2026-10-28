@@ -1,0 +1,13 @@
+.venv/
+.git/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+uploads/
+processed/
+deployment-backup/
+*.pre-*-backup
+Untitled-1.cpp
+static/songs/*.mp3

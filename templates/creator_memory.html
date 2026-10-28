@@ -64,6 +64,39 @@
                         <p>{{ segment.transcript_text }}</p>
 
                         <form action="{{ url_for('generate_clip') }}" method="POST">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                            <input
+                                type="hidden"
+                                name="video_id"
+                                value="{{ video.id }}"
+                            >
+
+                            <input
+                                type="hidden"
+                                name="start_seconds"
+                                value="{{ [segment.start_seconds - 2, 0]|max }}"
+                            >
+
+                            <input
+                                type="hidden"
+                                name="duration"
+                                value="{{ [[((segment.end_seconds - segment.start_seconds + 4)|round(0, 'ceil')|int), 60]|min, 5]|max }}"
+                            >
+
+                            <label style="display: flex; align-items: center; gap: 10px; margin: 14px 0; cursor: pointer;">
+                            <input
+                            type="checkbox"
+                            name="captions"
+                            value="on"
+                            checked
+                            style="width: 18px; height: 18px;"
+                            >
+                           <span>✨ Enable Auto Captions</span>
+                           </label>
+
+                          <button type="submit" class="generate-btn">
+                           ✂️ Generate Reel from This Moment
+                          </button>
                         <input
                         type="hidden"
                         name="video_id"

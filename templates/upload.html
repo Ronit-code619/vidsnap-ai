@@ -26,6 +26,7 @@
           method="POST"
           enctype="multipart/form-data"
           id="uploadForm">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
         <div class="upload-box" id="dropZone">
             <i class="fas fa-cloud-upload-alt"></i>
@@ -121,6 +122,7 @@
         <p>Choose the clip duration and starting point.</p>
 
         <form action="{{ url_for('generate_clip') }}" method="POST">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="setting-card">
                 <label for="duration">Clip Duration</label>
                 <select id="duration" name="duration" required>
@@ -166,6 +168,7 @@
     <p>Analyze your video transcript to discover interesting moments for Shorts and Reels.</p>
 
     <form action="{{ url_for('processing') }}" method="POST">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <button type="submit" class="generate-btn">
             ✨ Find Viral Hooks
         </button>

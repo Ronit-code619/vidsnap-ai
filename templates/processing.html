@@ -85,6 +85,7 @@
 
                         <form action="{{ url_for('generate_clip') }}"
                               method="POST">
+                              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
 
                         <input
